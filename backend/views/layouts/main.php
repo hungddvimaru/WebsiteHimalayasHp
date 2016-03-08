@@ -28,7 +28,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'H-Team',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -39,15 +39,17 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
         $menuItems[] = ['label' => 'Tổng quan', 'url' => ['/site/index']];
-        $menuItems[] = ['label' => 'Quản lý danh mục',
-            [
-                'label' => 'Loại hàng',
-                'url' => Yii::$app->urlManager->createUrl('loaihang/index')
-            ],
-            [
-                'label' => 'Thương hiệu',
-                'url' => Yii::$app->urlManager->createUrl('thuonghieu/index')
+        $menuItems[] = ['label' => 'Quản lý danh mục', 'items'=>[
+                [
+                    'label' => 'Loại hàng',
+                    'url' => Yii::$app->urlManager->createUrl('loaihang/index')
+                ],
+                [
+                    'label' => 'Thương hiệu',
+                    'url' => Yii::$app->urlManager->createUrl('thuonghieu/index')
+                ]
             ]
+
         ];
         $menuItems[] = ['label' => 'Quản lý hàng hóa','url' => Yii::$app->urlManager->createUrl('hanghoa/index')];
         $menuItems[] = ['label' => 'Quản lý đơn hàng', 'url' => Yii::$app->urlManager->createUrl('donhang/index')];

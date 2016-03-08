@@ -47,9 +47,9 @@ class loaihang extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'tenloai' => Yii::t('app', 'Tenloai'),
-            'duongdan' => Yii::t('app', 'Duongdan'),
-            'nhomloaihang' => Yii::t('app', 'Nhomloaihang'),
+            'tenloai' => Yii::t('app', 'Tên loại'),
+            'duongdan' => Yii::t('app', 'Đường dẫn'),
+            'nhomloaihang' => Yii::t('app', 'Nhóm loại hàng'),
         ];
     }
 
