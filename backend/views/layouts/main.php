@@ -34,12 +34,23 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-    ];
+    $menuItems = [];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
+        $menuItems[] = ['label' => 'Tổng quan', 'url' => ['/site/index']];
+        $menuItems[] = ['label' => 'Quản lý danh mục',
+            [
+                'label' => 'Loại hàng',
+                'url' => Yii::$app->urlManager->createUrl('loaihang/index')
+            ],
+            [
+                'label' => 'Thương hiệu',
+                'url' => Yii::$app->urlManager->createUrl('thuonghieu/index')
+            ]
+        ];
+        $menuItems[] = ['label' => 'Quản lý hàng hóa','url' => Yii::$app->urlManager->createUrl('hanghoa/index')];
+        $menuItems[] = ['label' => 'Quản lý đơn hàng', 'url' => Yii::$app->urlManager->createUrl('donhang/index')];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
